@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.springframework</groupId>
-    <artifactId>gs-rest-service</artifactId>
-    <version>0.1.0</version>
+    <artifactId>emtalent-springrest</artifactId>
+    <version>0.1</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -41,6 +41,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+			<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-dependency-plugin</artifactId>
+        	<version>3.1.1</version>		    
+		    <executions>
+		        <execution>
+		            <id>copy-dependencies</id>
+		            <phase>prepare-package</phase>
+		            <goals>
+		                <goal>copy-dependencies</goal>
+		            </goals>
+		            <configuration>
+		                <outputDirectory>
+		                    ${project.build.directory}/libs
+		                </outputDirectory>
+		            </configuration>
+		        </execution>
+		    </executions>
+			</plugin>            
         </plugins>
     </build>
 
